@@ -1,0 +1,34 @@
+.todoitems {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px 0;
+}
+
+.todoitems+.todoitems {
+    border-top: 1px double #dbdbdb;
+}
+
+.todoitems-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.todoitems-container.task-done {
+    text-decoration: line-through;
+}
+
+.todoitems-container img {
+    max-width: 28px;
+}
+
+.todoitems-text {
+    padding-left: 16px;
+    color: #404040;
+    font-size: 22px;
+}
+
+.close-icon {
+    cursor: pointer;
+    padding-left: 15px;
+}
