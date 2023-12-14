@@ -33,7 +33,7 @@ export const Todo = () => {
             <div className="todo-header">Todo List</div>
             <div className="todo-add">
                 <form onSubmit={add}>
-                    <input ref={inputRef} type="text" placeholder='add Your Todo Hear' className='todo-input' />
+                    <input ref={inputRef} type="text" placeholder='Add You Todo' className='todo-input' />
                     <input className="todo-add-btn" type="submit" value={"Add"} />
                 </form>
             </div>
