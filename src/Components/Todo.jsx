@@ -23,7 +23,7 @@ export const Todo = () => {
     useEffect(() => {
         // Hear i Use setTimeout because of i use 2 useEffect and i want to relode this useeffect after first one 
         setTimeout(() => {
-            console.log(todos);
+            // console.log(todos);
             localStorage.setItem("todos", JSON.stringify(todos))
         }, 100)
     }, [todos])
