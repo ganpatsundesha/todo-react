@@ -6,7 +6,7 @@ import tick from './Assets/tick.png'
 
 export const TodoItem = ({ no, display, text, setTodos }) => {
 
-    const toggle = (no) => {
+    const toggleTodo = (no) => {
         let data = JSON.parse(localStorage.getItem("todos"));
         for (let i = 0; i < data.length; i++) {
             if (data[i].no === no) {
@@ -22,6 +22,10 @@ export const TodoItem = ({ no, display, text, setTodos }) => {
         setTodos(data);
     }
 
+    const randomNum = () => {
+        
+    }
+
     const removeTodo = (no) => {
         let data = JSON.parse(localStorage.getItem("todos"));
         data = data.filter((todo) => todo.no !== no);
@@ -30,7 +34,7 @@ export const TodoItem = ({ no, display, text, setTodos }) => {
 
     return (
         <div className='todoitems'>
-            <div className={`todoitems-container ${display}`} onClick={() => { toggle(no) }}>
+            <div className={`todoitems-container ${display}`} onClick={() => { toggleTodo(no) }}>
                 {display == "" ? <img src={not_tick} /> : <img src={tick} />}
                 <div className="todoitems-text">{text}</div>
             </div>

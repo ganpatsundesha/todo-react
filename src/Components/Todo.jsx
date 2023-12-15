@@ -3,7 +3,7 @@ import './Css/Todo.css'
 import { TodoItem } from './TodoItem';
 
 
-let count = 0;
+let count;
 export const Todo = () => {
 
     const [todos, setTodos] = useState([]);
@@ -11,19 +11,34 @@ export const Todo = () => {
 
     const add = (e) => {
         e.preventDefault();
-        setTodos([...todos, { no: count++, text: inputRef.current.value, display: '' }])
-        inputRef.current.value = '';
+
+        count = Math.floor(Math.random() * 10000 + 1);
+
+        const isUnique = todos.some((todo) => {
+            return todo.no === count
+        });
+
+        if (isUnique) {
+            return add(e);
+        }
+
+        if ((inputRef.current.value).trim() == '') {
+            alert("Please Add Todo")
+        }
+        else {
+            setTodos([...todos, { no: count, text: inputRef.current.value, display: '' }])
+            inputRef.current.value = '';
+        }
     }
 
     useEffect(() => {
-        setTodos(JSON.parse(localStorage.getItem("todos")))
+        setTodos(JSON.parse(localStorage.getItem("todos")));
         //  [] to relode this useeffect on page relode
     }, [])
 
     useEffect(() => {
         // Hear i Use setTimeout because of i use 2 useEffect and i want to relode this useeffect after first one 
         setTimeout(() => {
-            // console.log(todos);
             localStorage.setItem("todos", JSON.stringify(todos))
         }, 100)
     }, [todos])
