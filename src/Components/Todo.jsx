@@ -15,7 +15,7 @@ export const Todo = () => {
         count = Math.floor(Math.random() * 10000 + 1);
 
         const isUnique = todos.some((todo) => {
-            return todo.no === count
+            return todo.id === count
         });
 
         if (isUnique) {
@@ -26,7 +26,7 @@ export const Todo = () => {
             alert("Please Add Todo")
         }
         else {
-            setTodos([...todos, { no: count, text: inputRef.current.value, display: '' }])
+            setTodos([...todos, { id: count, text: inputRef.current.value, display: '' }])
             inputRef.current.value = '';
         }
     }
@@ -54,7 +54,7 @@ export const Todo = () => {
             </div>
             <div className="todo-list">
                 {todos.map((item, index) => {
-                    return <TodoItem key={index} setTodos={setTodos} no={item.no} text={item.text} display={item.display} />
+                    return <TodoItem key={index} setTodos={setTodos} id={item.id} text={item.text} display={item.display} />
                 })}
             </div>
         </div>
